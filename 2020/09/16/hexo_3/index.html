@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script>
+<meta name="description" content="前言虽然next 8.0 主题已经支持原生黑色模式，只需要在 _config.next.yml 文件中，将相应开关打开即可。 1darkmode: true  但是这个黑色模式是不可以切换的，本文将介绍如何实现一个按钮来切换黑&#x2F;白模式。如果你还没有自己的博客，可以参考我的前两篇文章：hexo基本安装及配置，hexo主题安装以及next8.0主题美化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为hexo next8.0主题添加一个可以切换的黑色&#x2F;夜间模式">
+<meta property="og:url" content="http://example.com/2020/09/16/hexo_3/index.html">
+<meta property="og:site_name" content="旅行者的背囊">
+<meta property="og:description" content="前言虽然next 8.0 主题已经支持原生黑色模式，只需要在 _config.next.yml 文件中，将相应开关打开即可。 1darkmode: true  但是这个黑色模式是不可以切换的，本文将介绍如何实现一个按钮来切换黑&#x2F;白模式。如果你还没有自己的博客，可以参考我的前两篇文章：hexo基本安装及配置，hexo主题安装以及next8.0主题美化。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/darkmode.gif">
+<meta property="article:published_time" content="2020-09-16T12:58:30.000Z">
+<meta property="article:modified_time" content="2020-09-23T22:06:49.000Z">
+<meta property="article:author" content="Keanubionic">
+<meta property="article:tag" content="杂谈">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/darkmode.gif">
+
+
+<link rel="canonical" href="http://example.com/2020/09/16/hexo_3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;09&#x2F;16&#x2F;hexo_3&#x2F;&quot;,&quot;path&quot;:&quot;2020&#x2F;09&#x2F;16&#x2F;hexo_3&#x2F;&quot;,&quot;title&quot;:&quot;为hexo next8.0主题添加一个可以切换的黑色&#x2F;夜间模式&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>为hexo next8.0主题添加一个可以切换的黑色/夜间模式 | 旅行者的背囊</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">旅行者的背囊</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>guestbook</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">具体步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0darkmode-js%E5%88%B0%E4%BD%A0%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AD"><span class="nav-number">2.1.</span> <span class="nav-text">1. 添加darkmode.js到你的next主题中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9C%A8%E4%BD%A0%E7%9A%84-config-next-yml-%E6%B7%BB%E5%8A%A0darkmode-js%E7%9A%84%E7%9B%B8%E5%85%B3%E5%BC%80%E5%85%B3%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">2. 在你的 _config.next.yml 添加darkmode_js的相关开关：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%BC%80%E5%90%AFdarkmode-js"><span class="nav-number">2.3.</span> <span class="nav-text">3. 开启darkmode_js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%87%8D%E6%96%B0%E7%94%9F%E6%88%90%E5%8D%B3%E5%8F%AF%E5%BC%80%E5%90%AF%EF%BC%8C%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E5%8D%B3%E5%8F%AF%E5%88%87%E6%8D%A2%E9%BB%91%E7%99%BD%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">4. 重新生成即可开启，点击按钮即可切换黑白模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Upcoming-next"><span class="nav-number">3.1.</span> <span class="nav-text">Upcoming next</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Keanubionic"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Keanubionic</p>
+  <div class="site-description" itemprop="description">万物归于尘土 万事皆有悔恨</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kazutokyo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kazutokyo" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Keanubionic@gmail.com" title="E-Mail → mailto:Keanubionic@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://user.qzone.qq.com/987064101/infocenter" title="Tencent → https:&#x2F;&#x2F;user.qzone.qq.com&#x2F;987064101&#x2F;infocenter" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>Tencent</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.frontendx.cn/" title="https:&#x2F;&#x2F;blog.frontendx.cn&#x2F;" rel="noopener" target="_blank">前端工程师</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/16/hexo_3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Keanubionic">
+      <meta itemprop="description" content="万物归于尘土 万事皆有悔恨">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="旅行者的背囊">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          为hexo next8.0主题添加一个可以切换的黑色/夜间模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-16 20:58:30" itemprop="dateCreated datePublished" datetime="2020-09-16T20:58:30+08:00">2020-09-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-24 06:06:49" itemprop="dateModified" datetime="2020-09-24T06:06:49+08:00">2020-09-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽然next 8.0 主题已经支持原生黑色模式，只需要在 _config.next.yml 文件中，将相应开关打开即可。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>但是这个黑色模式是不可以切换的，本文将介绍如何实现一个按钮来切换黑/白模式。如果你还没有自己的博客，可以参考我的前两篇文章：<a target="_blank" rel="noopener" href="https://haomingzhang.com/hexo_1/">hexo基本安装及配置</a>，<a target="_blank" rel="noopener" href="https://haomingzhang.com/hexo_2/">hexo主题安装以及next8.0主题美化</a>。</p>
+<span id="more"></span>
+
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="1-添加darkmode-js到你的next主题中"><a href="#1-添加darkmode-js到你的next主题中" class="headerlink" title="1. 添加darkmode.js到你的next主题中"></a>1. 添加darkmode.js到你的next主题中</h2><p>你可以下载 <a target="_blank" rel="noopener" href="https://github.com/sandoche/Darkmode.js">Darkmode.js</a> 或者直接添加他的cdn到你的vendors文件。（注：next8.0之前的版本没有接下来所提到的需要的文件，可以参考<a target="_blank" rel="noopener" href="https://dog.wtf/tech/hexo-dark-mode-note/">这篇文章</a>来配置你的黑色模式）</p>
+<p>我的方法是直接在 themes/next/_vendors.yml 中添加 darkmode的 cdn：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">darkmode_js:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">darkmode-js</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">1.5</span><span class="number">.7</span></span><br><span class="line">  <span class="attr">file:</span> <span class="string">lib/darkmode-js.min.js</span></span><br></pre></td></tr></table></figure>
+<p>直接加在文件末尾即可。</p>
+<h2 id="2-在你的-config-next-yml-添加darkmode-js的相关开关："><a href="#2-在你的-config-next-yml-添加darkmode-js的相关开关：" class="headerlink" title="2. 在你的 _config.next.yml 添加darkmode_js的相关开关："></a>2. 在你的 _config.next.yml 添加darkmode_js的相关开关：</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="comment">#darkmode_js: https://cdn.jsdelivr.net/npm/darkmode-js/lib/darkmode-js.min.js</span></span><br><span class="line">  <span class="attr">darkmode_js:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># darkmode.js</span></span><br><span class="line"><span class="attr">darkmode_js:</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>注意缩进！第一个darkmode_js是在vendors栏目下，第二个darkmode_js是一个单独的栏目。</p>
+<h2 id="3-开启darkmode-js"><a href="#3-开启darkmode-js" class="headerlink" title="3. 开启darkmode_js"></a>3. 开启darkmode_js</h2><p>打开 themes/next/layout/_scripts/vendors.njk，配置以下代码：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.canvas_ribbon.enable</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;script</span> <span class="string">size=&quot;&#123;&#123;</span> <span class="string">theme.canvas_ribbon.size</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">alpha=&quot;&#123;&#123;</span> <span class="string">theme.canvas_ribbon.alpha</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">zIndex=&quot;&#123;&#123;</span> <span class="string">theme.canvas_ribbon.zIndex</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">src=&quot;&#123;&#123;</span> <span class="string">theme.vendors.canvas_ribbon</span> <span class="string">&#125;&#125;&quot;&gt;&lt;/script&gt;</span></span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment"># Customize darkmode.js - Declaration #&#125;</span></span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.darkmode_js.enable</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;script</span> <span class="string">src=&quot;<span class="template-variable">&#123;&#123; theme.vendors.darkmode_js &#125;&#125;</span></span><span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&#123;%- endif %&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;%- for name in js_vendors() %&#125;</span></span><br><span class="line"><span class="string">  &lt;script src=&quot;</span>&#123;&#123; <span class="string">url_for(theme.vendors</span>[<span class="string">name</span>]<span class="string">)</span> &#125;&#125;<span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&#123;%- endfor %&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;# Customize darkmode.js - Invokation #&#125;</span></span><br><span class="line"><span class="string">&#123;%- if theme.darkmode_js.enable %&#125;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">var options = &#123;</span></span><br><span class="line"><span class="string">  bottom: &#x27;64px&#x27;, // default: &#x27;32px&#x27;</span></span><br><span class="line"><span class="string">  right: &#x27;unset&#x27;, // default: &#x27;32px&#x27;</span></span><br><span class="line"><span class="string">  left: &#x27;32px&#x27;, // default: &#x27;unset&#x27;</span></span><br><span class="line"><span class="string">  time: &#x27;0.5s&#x27;, // default: &#x27;0.3s&#x27;</span></span><br><span class="line"><span class="string">  mixColor: &#x27;#fff&#x27;, // default: &#x27;#fff&#x27;</span></span><br><span class="line"><span class="string">  backgroundColor: &#x27;#fff&#x27;,  // default: &#x27;#fff&#x27;</span></span><br><span class="line"><span class="string">  buttonColorDark: &#x27;#100f2c&#x27;,  // default: &#x27;#100f2c&#x27;</span></span><br><span class="line"><span class="string">  buttonColorLight: &#x27;#fff&#x27;, // default: &#x27;#fff&#x27;</span></span><br><span class="line"><span class="string">  saveInCookies: true, // default: true,</span></span><br><span class="line"><span class="string">  label: &#x27;🌓&#x27;, // default: &#x27;&#x27;</span></span><br><span class="line"><span class="string">  autoMatchOsTheme: true // default: true</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">const darkmode = new Darkmode(options);</span></span><br><span class="line"><span class="string">darkmode.showWidget();</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&#123;%- endif %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>因为此版本的动画特效已经精简为只有canvas_ribbon，更改后的配置文件就如上所示，其他可以根据情况自行更改。</p>
+<h2 id="4-重新生成即可开启，点击按钮即可切换黑白模式"><a href="#4-重新生成即可开启，点击按钮即可切换黑白模式" class="headerlink" title="4. 重新生成即可开启，点击按钮即可切换黑白模式"></a>4. 重新生成即可开启，点击按钮即可切换黑白模式</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>因为next团队在8.0版本更改了比较多的代码，网上既有的教程并不适用于8.0版本，如果有这个按钮需要的话，可以按照本文配置哦！可以参考我的配置（Reference栏）来进行修改，如果有任何问题欢迎留言。</p>
+<p>最后效果<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/darkmode.gif"></p>
+<h2 id="Upcoming-next"><a href="#Upcoming-next" class="headerlink" title="Upcoming next"></a>Upcoming next</h2><p>为你的博客添加留言板功能（<a target="_blank" rel="noopener" href="https://haomingzhang.com/hexo_4/">已更新</a>）</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://github.com/haomingvince/hexo-haomingvince/">我的页面设置</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sandoche/Darkmode.js">sandoche/Darkmode.js: 🌓 Add a dark-mode / night-mode to your website in a few seconds</a></p>
+<p><a target="_blank" rel="noopener" href="https://dog.wtf/tech/hexo-dark-mode-note/">Hexo（Next 主题）实现可切换的 Dark Mode (暗色背景 / 夜间模式) | 雪泥鴻爪</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9D%82%E8%B0%88/" rel="tag"># 杂谈</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/13/hexo_2/" rel="prev" title="hexo主题安装以及next8.0主题美化">
+                  <i class="fa fa-chevron-left"></i> hexo主题安装以及next8.0主题美化
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/21/hexo_4/" rel="next" title="hexo + next8.0开启Valine评论系统及添加留言板功能">
+                  hexo + next8.0开启Valine评论系统及添加留言板功能 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Keanubionic</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+
+  <script src="[object Object]"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/%5Bobject%20Object%5D"></script>
+
+
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

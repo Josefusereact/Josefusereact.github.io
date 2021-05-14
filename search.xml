@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/05/14/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo基本安装及配置</title>
+    <url>/2020/09/13/hexo_1/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经过了快一星期的折腾，我的博客的各项功能也在陆续开通中，本文就来记录一下hexo + github pages心路历程及配置方法。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>可以通过右边的文章目录快速跳转哦！</p>
+</blockquote>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><h2 id="需要准备的东西"><a href="#需要准备的东西" class="headerlink" title="需要准备的东西"></a>需要准备的东西</h2><ol>
+<li>github账号</li>
+<li>git(本地)</li>
+<li>node.js</li>
+<li>npm</li>
+<li>个人域名(可选)</li>
+</ol>
+<h2 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h2><h3 id="申请github账号"><a href="#申请github账号" class="headerlink" title="申请github账号"></a>申请<a href="https://github.com/">github</a>账号</h3><p>这里xxx填写你的github账户名称。如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/1.png"><br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/2.png"></p>
+<h3 id="创建一个新的仓库"><a href="#创建一个新的仓库" class="headerlink" title="创建一个新的仓库"></a>创建一个新的仓库</h3><p>命名为 xxx.github.io<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/3.png"><br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/4.png"></p>
+<h3 id="电脑上安装-git"><a href="#电脑上安装-git" class="headerlink" title="电脑上安装 git"></a>电脑上安装 <a href="https://git-scm.com/">git</a></h3><p>记得添加右键选单和加入PATH。具体git配置教程可以参考<br><a href="https://blog.csdn.net/dietime1943/article/details/71751007">[Git &amp; GitHub] Windows安装git和环境变量配置_Bluetata’s Tech.Blog-CSDN博客</a></p>
+<h3 id="电脑上安装-node-js"><a href="#电脑上安装-node-js" class="headerlink" title="电脑上安装 node.js"></a>电脑上安装 <a href="https://nodejs.org/en/download/">node.js</a></h3><p>记得加入PATH。此版本node.js集成了npm，可以再命令行中输入node -v 以及 npm -v 检查是否安装成功。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/5.png"></p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用命令行工具(cd xxxx) 进入你的博客文件夹，依次输入以下指令：<br>安装hexo和hexo服务器模块</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+
+<p>初始化博客</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>测试hexo是否安装成功：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="built_in">test</span></span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>其中hexo new test表示新建一篇名为test的博文，hexo g表示生成，是hexo generate的简写，hexo s在本地运行hexo服务器，是hexo server的简写。</p>
+<p>成功后会有如下提示，进入 <a href="http://localhost:4000/">http://localhost:4000</a> 即可看到刚刚生成的网页。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/6.png"></p>
+<p>以下为配置完成后的样子，可能和你生成的页面不同，如果想配置和我一样的hexo可以继续阅读我的其他post。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/7.png"></p>
+<h3 id="配置到github-pages"><a href="#配置到github-pages" class="headerlink" title="配置到github pages"></a>配置到github pages</h3><p>之前的操作只是在本地实现了我们的博客，如何推送到github pages呢？</p>
+<p>首先，打开博客目录下的 _config.yml 文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/8.png"></p>
+<p>使用 ctrl+f 搜索deploy，并添加以下代码。注意！把xxx改为之前在github配置的名字即可。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/xxx/xxx.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来，安装hexo-deployer-git</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>接下来就可以推送我们的网页到github啦！</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>其中hexo d表示deploy，是hexo deploy的简写，它会去config里面找到deploy栏目，然后根据你配置的deployer进行配置，十分方便！</p>
+<h3 id="访问网页"><a href="#访问网页" class="headerlink" title="访问网页"></a>访问网页</h3><p>如果之前的步骤都是正确的话，那么恭喜你！你已经可以访问你的网页了！</p>
+<p>比如我的网页： <a href="https://haomingvince.github.io/">https://haomingvince.github.io</a></p>
+<p>把haomingvince改成你的github用户名即可</p>
+<h3 id="绑定你自己的域名（可选）"><a href="#绑定你自己的域名（可选）" class="headerlink" title="绑定你自己的域名（可选）"></a>绑定你自己的域名（可选）</h3><p>如果你已经拥有你自己的域名的话那是最好，如果你想购买一个域名，可以去<a href="https://dnspod.cloud.tencent.com/">腾讯云</a>，<a href="https://wanwang.aliyun.com/">阿里云</a>，或者<a href="https://go.skimresources.com/?id=157360X1623833&xs=1&xcreo=500002&url=https://www.godaddy.com">godaddy</a>购买。</p>
+<p>由于我的域名是在godaddy购买的，接下来我会演示如何绑定你的github pages到godaddy，其他域名商操作应该也是雷同的。</p>
+<p>登录你的godaddy后台，点击manage DNS<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/9.png"></p>
+<p>添加两条记录，一条CNAME，一条A记录，如图：<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/10.png"><br>其中CNAME的value就填写你的github page的值，A的value可以通过ping xxx.github.io得到。</p>
+<p>接下来，去到你的github page的settings界面，在Options-&gt;Github pages-&gt;custom domain添加你的域名：<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/11.png"></p>
+<p>最后一步，在你本地 /source 文件夹下添加一个名为CNAME的文件（注意，此文件没有后缀），里面添加你的域名即可。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/12.png"></p>
+<p>再次执行deploy</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>稍等几分钟，你就可以用自己的域名访问你的网站啦！<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/13.png"></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本文介绍了基本的hexo + github page的部署及实现，如果有任何问题，欢迎留言！</p>
+<h2 id="Upcoming-Next"><a href="#Upcoming-Next" class="headerlink" title="Upcoming Next"></a>Upcoming Next</h2><p>Next 8.0 主题配置 （<a href="https://haomingzhang.com/hexo_2/">已更新</a>）</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://haomingzhang.com/">Vince’s Blog</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程 - 知乎</a></p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo主题安装以及next8.0主题美化</title>
+    <url>/2020/09/13/hexo_2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>配置完了hexo，你是否对自带的主题不满意呢？本篇文章将教你如何更改及美化hexo主题。<br>如果你还有没有安装hexo，请移步我的<a href="https://haomingzhang.com/hexo_1/">上一篇文章</a>。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>可以通过右边的文章目录快速跳转哦！</p>
+</blockquote>
+<h1 id="hexo主题推荐"><a href="#hexo主题推荐" class="headerlink" title="hexo主题推荐"></a>hexo主题推荐</h1><h2 id="hexo-next"><a href="#hexo-next" class="headerlink" title="hexo next"></a>hexo next</h2><p><a href="https://github.com/next-theme/hexo-theme-next">hexo-theme-next</a>应该是目前最广泛使用的hexo主题了，优点是简洁，定制度高，因为代码是开源的，所以有很多开发者维护。由于前任管理员不提供权限，故开发了一个新的分支，<a href="https://github.com/next-theme/hexo-theme-next/issues/4#issuecomment-626205848">详情</a>。最新版本为8.0也是我在使用的版本，8.0及前版本请使用github搜索功能。<br><img src="https://user-images.githubusercontent.com/16272760/83972923-98baae80-a915-11ea-8142-3cf875dad8bf.png"></p>
+<h2 id="hexo-kaze"><a href="#hexo-kaze" class="headerlink" title="hexo kaze"></a>hexo kaze</h2><p><a href="https://github.com/theme-kaze/hexo-theme-kaze">hexo-theme-kaze</a>是我在<a href="https://hexo.io/themes/">Themes|Hexo</a>里面找到的一款很漂亮的主题，支持黑、白两种模式，界面简洁。<br><img src="https://camo.githubusercontent.com/7fcf6c7d79e5cac6df102ff704e3ce05d3913e4e/68747470733a2f2f696d672e736f6e67686e2e636f6d2f696d672f67616c6c6572792e706e673f696d616765736c696d"></p>
+<h1 id="hexo-next主题安装及美化"><a href="#hexo-next主题安装及美化" class="headerlink" title="hexo next主题安装及美化"></a>hexo next主题安装及美化</h1><h2 id="更改基本站点信息"><a href="#更改基本站点信息" class="headerlink" title="更改基本站点信息"></a>更改基本站点信息</h2><p>在你的博客根目录下打开 _config.yml<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/8.png"></p>
+<p>在site栏目下可以更改你的基本站点信息</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Vince&#x27;s</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;Vince的博客&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Vince</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>同时，记得把网站url改成自己的站点名</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">http://www.haomingzhang.com</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装hexo-next主题"><a href="#安装hexo-next主题" class="headerlink" title="安装hexo next主题"></a>安装hexo next主题</h2><p>如果你正在使用hexo 5.0及以上版本，可以使用以下命令安装：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your_site_dir</span><br><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<p>或者使用git submodule克隆到本地（我在使用的方法，下文也会使用此方法的路径，npm安装的主题路径在node_modules里，其他操作不变。使用submodule是为了更好的版本控制。）：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your_site_dir</span><br><span class="line">$ git submodule add https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<h2 id="切换到next主题"><a href="#切换到next主题" class="headerlink" title="切换到next主题"></a>切换到next主题</h2><p>在你的博客根目录下打开 _config.yml<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/8.png"></p>
+<p>搜索themes，将里面的值改为next</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置next主题"><a href="#配置next主题" class="headerlink" title="配置next主题"></a>配置next主题</h2><p>将 themes/next/_config.yml复制到你的博客根目录，重命名为_config.next.yml，linux可以使用以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your_site_dir</span><br><span class="line">$ cp themes/next/_config.yml _config.next.yml</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择Schemes"><a href="#选择Schemes" class="headerlink" title="选择Schemes"></a>选择Schemes</h3><p>打开 _config.next.yml，首先可以看到 Scheme Settings，里面提供了四种模式，对应上面介绍next的图片的四种，我用的是muse主题，可以根据自己的喜好更改。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置站点icon"><a href="#设置站点icon" class="headerlink" title="设置站点icon"></a>设置站点icon</h3><p>在favicon中，可以设置侧边栏头像以及站点icon。需要把你的icon放在 source/img/目录下</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">    <span class="attr">small:</span> <span class="string">/img/avatar.jfif</span></span><br><span class="line">    <span class="attr">medium:</span> <span class="string">/img/avatar.jfif</span></span><br><span class="line">    <span class="attr">apple_touch_icon:</span> <span class="string">/img/avatar.jfif</span></span><br><span class="line">    <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置菜单栏"><a href="#设置菜单栏" class="headerlink" title="设置菜单栏"></a>设置菜单栏</h3><p>在menu下，可以设置菜单显示内容，此版本next支持font awesome图标，可以去<a href="https://fontawesome.com/">官网</a>寻找你喜欢的图标进行替换。注：相应的菜单栏需要有对应的页面才能打开，不然会404哦！</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">    <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">    <span class="comment">#about: /about/ || fa fa-user</span></span><br><span class="line">    <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">    <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">    <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">    <span class="attr">guestbook:</span> <span class="string">/guestbook/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-book</span></span><br><span class="line">    <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">    <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">    <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开启tags-categories-留言板栏"><a href="#开启tags-categories-留言板栏" class="headerlink" title="开启tags/categories/留言板栏"></a>开启tags/categories/留言板栏</h3><p>举个栗子，开启tags：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> your_site_dir</span><br><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>此时在你的 source/ 文件夹下会出现一个对应的tags文件夹，打开index.md并编辑为：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标签</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-09-06 19:36:01</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">sitemap:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>即可开启tags，categories也是一样的操作，type改为categories即可。对于留言板来说，只需要将comments一栏改为true，type改为guestbook即可。</p>
+<h3 id="边栏设置"><a href="#边栏设置" class="headerlink" title="边栏设置"></a>边栏设置</h3><p>在sidebar选项下，有多个自定义选项，可以自行查看。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#调整边栏左右</span></span><br><span class="line"><span class="comment">#position: left</span></span><br><span class="line"><span class="attr">position:</span> <span class="string">right</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sidebar Display (only for Muse | Mist), available values:</span></span><br><span class="line"><span class="comment">#  - post    expand on posts automatically. Default.</span></span><br><span class="line"><span class="comment">#  - always  expand for all pages automatically.</span></span><br><span class="line"><span class="comment">#  - hide    expand only when click on the sidebar toggle icon.</span></span><br><span class="line"><span class="comment">#  - remove  totally remove sidebar including sidebar toggle.</span></span><br><span class="line"><span class="attr">display:</span> <span class="string">post</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sidebar padding in pixels.</span></span><br><span class="line"><span class="attr">padding:</span> <span class="number">18</span></span><br><span class="line"><span class="comment"># Sidebar offset from top menubar in pixels (only for Pisces | Gemini).</span></span><br><span class="line"><span class="attr">offset:</span> <span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加社交帐号"><a href="#添加社交帐号" class="headerlink" title="添加社交帐号"></a>添加社交帐号</h3><p>在social栏目下，可以自定义在边栏显示的社交帐号，可以根据需求自行添加。注：此处依然使用font awsome的图标，可以自行修改。</p>
+<h3 id="设置回到开头"><a href="#设置回到开头" class="headerlink" title="设置回到开头"></a>设置回到开头</h3><p>将back2top的enable设置为true即可，边栏和滚动百分比可以按照需求自行添加。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">back2top:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Back to top in sidebar.</span></span><br><span class="line">    <span class="attr">sidebar:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">    <span class="attr">scrollpercent:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置已读进度条"><a href="#设置已读进度条" class="headerlink" title="设置已读进度条"></a>设置已读进度条</h3><p>将reading_progress的enable设置为true即可，位置颜色和高度都可以调整。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reading progress bar</span></span><br><span class="line"><span class="attr">reading_progress:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: top | bottom</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">bottom</span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">    <span class="attr">height:</span> <span class="string">3px</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>到此，你已经实现了基本的next安装及配置，是不是好看了很多呢？如果你还是对设置有疑惑，可以参考我reference中我的页面设置。</p>
+<h2 id="Upcoming-Next"><a href="#Upcoming-Next" class="headerlink" title="Upcoming Next"></a>Upcoming Next</h2><p>下一篇文章中，我会介绍一些我使用的插件。（<a href="https://haomingzhang.com/hexo_3/">已更新</a>）</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://github.com/haomingvince/hexo-haomingvince/">我的页面设置</a></p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为hexo next8.0主题添加一个可以切换的黑色/夜间模式</title>
+    <url>/2020/09/16/hexo_3/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽然next 8.0 主题已经支持原生黑色模式，只需要在 _config.next.yml 文件中，将相应开关打开即可。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>但是这个黑色模式是不可以切换的，本文将介绍如何实现一个按钮来切换黑/白模式。如果你还没有自己的博客，可以参考我的前两篇文章：<a href="https://haomingzhang.com/hexo_1/">hexo基本安装及配置</a>，<a href="https://haomingzhang.com/hexo_2/">hexo主题安装以及next8.0主题美化</a>。</p>
+<span id="more"></span>
+
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="1-添加darkmode-js到你的next主题中"><a href="#1-添加darkmode-js到你的next主题中" class="headerlink" title="1. 添加darkmode.js到你的next主题中"></a>1. 添加darkmode.js到你的next主题中</h2><p>你可以下载 <a href="https://github.com/sandoche/Darkmode.js">Darkmode.js</a> 或者直接添加他的cdn到你的vendors文件。（注：next8.0之前的版本没有接下来所提到的需要的文件，可以参考<a href="https://dog.wtf/tech/hexo-dark-mode-note/">这篇文章</a>来配置你的黑色模式）</p>
+<p>我的方法是直接在 themes/next/_vendors.yml 中添加 darkmode的 cdn：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">darkmode_js:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">darkmode-js</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">1.5</span><span class="number">.7</span></span><br><span class="line">  <span class="attr">file:</span> <span class="string">lib/darkmode-js.min.js</span></span><br></pre></td></tr></table></figure>
+<p>直接加在文件末尾即可。</p>
+<h2 id="2-在你的-config-next-yml-添加darkmode-js的相关开关："><a href="#2-在你的-config-next-yml-添加darkmode-js的相关开关：" class="headerlink" title="2. 在你的 _config.next.yml 添加darkmode_js的相关开关："></a>2. 在你的 _config.next.yml 添加darkmode_js的相关开关：</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="comment">#darkmode_js: https://cdn.jsdelivr.net/npm/darkmode-js/lib/darkmode-js.min.js</span></span><br><span class="line">  <span class="attr">darkmode_js:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># darkmode.js</span></span><br><span class="line"><span class="attr">darkmode_js:</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>注意缩进！第一个darkmode_js是在vendors栏目下，第二个darkmode_js是一个单独的栏目。</p>
+<h2 id="3-开启darkmode-js"><a href="#3-开启darkmode-js" class="headerlink" title="3. 开启darkmode_js"></a>3. 开启darkmode_js</h2><p>打开 themes/next/layout/_scripts/vendors.njk，配置以下代码：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.canvas_ribbon.enable</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;script</span> <span class="string">size=&quot;&#123;&#123;</span> <span class="string">theme.canvas_ribbon.size</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">alpha=&quot;&#123;&#123;</span> <span class="string">theme.canvas_ribbon.alpha</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">zIndex=&quot;&#123;&#123;</span> <span class="string">theme.canvas_ribbon.zIndex</span> <span class="string">&#125;&#125;&quot;</span> <span class="string">src=&quot;&#123;&#123;</span> <span class="string">theme.vendors.canvas_ribbon</span> <span class="string">&#125;&#125;&quot;&gt;&lt;/script&gt;</span></span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">endif</span> <span class="string">%</span>&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment"># Customize darkmode.js - Declaration #&#125;</span></span><br><span class="line">&#123;<span class="string">%-</span> <span class="string">if</span> <span class="string">theme.darkmode_js.enable</span> <span class="string">%</span>&#125;</span><br><span class="line">  <span class="string">&lt;script</span> <span class="string">src=&quot;<span class="template-variable">&#123;&#123; theme.vendors.darkmode_js &#125;&#125;</span></span><span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&#123;%- endif %&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;%- for name in js_vendors() %&#125;</span></span><br><span class="line"><span class="string">  &lt;script src=&quot;</span>&#123;&#123; <span class="string">url_for(theme.vendors</span>[<span class="string">name</span>]<span class="string">)</span> &#125;&#125;<span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&#123;%- endfor %&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;# Customize darkmode.js - Invokation #&#125;</span></span><br><span class="line"><span class="string">&#123;%- if theme.darkmode_js.enable %&#125;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">var options = &#123;</span></span><br><span class="line"><span class="string">  bottom: &#x27;64px&#x27;, // default: &#x27;32px&#x27;</span></span><br><span class="line"><span class="string">  right: &#x27;unset&#x27;, // default: &#x27;32px&#x27;</span></span><br><span class="line"><span class="string">  left: &#x27;32px&#x27;, // default: &#x27;unset&#x27;</span></span><br><span class="line"><span class="string">  time: &#x27;0.5s&#x27;, // default: &#x27;0.3s&#x27;</span></span><br><span class="line"><span class="string">  mixColor: &#x27;#fff&#x27;, // default: &#x27;#fff&#x27;</span></span><br><span class="line"><span class="string">  backgroundColor: &#x27;#fff&#x27;,  // default: &#x27;#fff&#x27;</span></span><br><span class="line"><span class="string">  buttonColorDark: &#x27;#100f2c&#x27;,  // default: &#x27;#100f2c&#x27;</span></span><br><span class="line"><span class="string">  buttonColorLight: &#x27;#fff&#x27;, // default: &#x27;#fff&#x27;</span></span><br><span class="line"><span class="string">  saveInCookies: true, // default: true,</span></span><br><span class="line"><span class="string">  label: &#x27;🌓&#x27;, // default: &#x27;&#x27;</span></span><br><span class="line"><span class="string">  autoMatchOsTheme: true // default: true</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">const darkmode = new Darkmode(options);</span></span><br><span class="line"><span class="string">darkmode.showWidget();</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&#123;%- endif %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>因为此版本的动画特效已经精简为只有canvas_ribbon，更改后的配置文件就如上所示，其他可以根据情况自行更改。</p>
+<h2 id="4-重新生成即可开启，点击按钮即可切换黑白模式"><a href="#4-重新生成即可开启，点击按钮即可切换黑白模式" class="headerlink" title="4. 重新生成即可开启，点击按钮即可切换黑白模式"></a>4. 重新生成即可开启，点击按钮即可切换黑白模式</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>因为next团队在8.0版本更改了比较多的代码，网上既有的教程并不适用于8.0版本，如果有这个按钮需要的话，可以按照本文配置哦！可以参考我的配置（Reference栏）来进行修改，如果有任何问题欢迎留言。</p>
+<p>最后效果<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/darkmode.gif"></p>
+<h2 id="Upcoming-next"><a href="#Upcoming-next" class="headerlink" title="Upcoming next"></a>Upcoming next</h2><p>为你的博客添加留言板功能（<a href="https://haomingzhang.com/hexo_4/">已更新</a>）</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://github.com/haomingvince/hexo-haomingvince/">我的页面设置</a></p>
+<p><a href="https://github.com/sandoche/Darkmode.js">sandoche/Darkmode.js: 🌓 Add a dark-mode / night-mode to your website in a few seconds</a></p>
+<p><a href="https://dog.wtf/tech/hexo-dark-mode-note/">Hexo（Next 主题）实现可切换的 Dark Mode (暗色背景 / 夜间模式) | 雪泥鴻爪</a></p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo + next8.0开启Valine评论系统及添加留言板功能</title>
+    <url>/2020/09/21/hexo_4/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经过前三轮的折腾，你已经拥有一个自己定义的静态页面了，是时候给它添加一个留言板功能了。next主题自带了多种留言功能的插件，比如畅言，disqus，disqusjs，gitalk，livere，valine。 valine是其中相对简洁并且限制较少的一款轻量型博客评论系统。本文将教你如何开启并美化valine评论系统。如果你还没有配置你自己的博客，可以参考我的<a href="https://haomingzhang.com/tags/Hexo/">前几篇文章</a>。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>可以通过右边的文章目录快速跳转哦！</p>
+</blockquote>
+<h1 id="开启valine评论系统"><a href="#开启valine评论系统" class="headerlink" title="开启valine评论系统"></a>开启valine评论系统</h1><h2 id="1-注册-Leancloud-账号"><a href="#1-注册-Leancloud-账号" class="headerlink" title="1. 注册 Leancloud 账号"></a>1. 注册 Leancloud 账号</h2><p>在leancloud官网注册一个账号，海外同学推荐使用leancloud国际版，国内同学可以使用华东或华北节点。本文将使用国际版作为演示，国内版有些许不同，同学们可以自行查阅网上的资料。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/14.png"></p>
+<p>注册完成后进入app控制面板-&gt;创建应用-&gt;创建开发版应用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/15.png"></p>
+<p>接下来我们配置一下我们的leancloud。点击设置-&gt;安全中心-&gt;Web 安全域名，输入你的域名来保证其他人就算获取了你的appid也没办法操作你的数据库。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/16.png"></p>
+<p>接下来点击应用keys获取你的appid和appkey。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/17.png"></p>
+<h2 id="2-在next主题中配置valine"><a href="#2-在next主题中配置valine" class="headerlink" title="2. 在next主题中配置valine"></a>2. 在next主题中配置valine</h2><p>打开 _config.next.yml，找到comments栏目并开启valine。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">comments:</span></span><br><span class="line">  <span class="attr">active:</span> <span class="string">valine</span></span><br></pre></td></tr></table></figure>
+
+<p>往下滑动进入valine设置栏，开启valine并填入你的appid和appkey。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appId:</span>  <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appKey:</span>  <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">&quot;输入你的评论\n昵称为必填项目，输入QQ号可以直接获取用户名和头像，并且省去了填写邮箱的麻烦！\n虽然email不是必选，但是填写了email可以收到推送通知哦！&quot;</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">&quot;&quot;</span> <span class="comment"># Gravatar style</span></span><br><span class="line">  <span class="attr">meta:</span> [<span class="string">nick</span>, <span class="string">mail</span>] <span class="comment"># Custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  <span class="attr">lang:</span> <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># Article reading statistic</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  <span class="attr">recordIP:</span> <span class="literal">true</span> <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  <span class="attr">serverURLs:</span> <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="attr">enableQQ:</span> <span class="literal">true</span> <span class="comment"># Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar</span></span><br><span class="line">  <span class="attr">requiredFields:</span> [<span class="string">nick</span>] <span class="comment"># Set required fields: [nick] | [nick, mail]</span></span><br></pre></td></tr></table></figure>
+
+<p>这里稍微解释一下各个参数的用途。<br>placeholder是在用户未输入任何参数时默认显示的值；<br>avatar是默认用户头像，参考<a href="https://valine.js.org/avatar.html">link</a>；<br>meta是可以选择的用户信息栏；<br>enableQQ可以自动匹配用户在nick栏目的输入，若是QQ，直接拉取用户的QQ头像和昵称作为评论使用，推荐开启（目前有个bug，若用户QQ昵称小于三个字符，可能出现拉取失败，等待大佬更新）；<br>其他的配置可以参考<a href="https://valine.js.org/configuration.html">link</a>。</p>
+<blockquote>
+<p>至此你的评论系统已经开启。</p>
+</blockquote>
+<h2 id="3-在菜单栏添加留言板"><a href="#3-在菜单栏添加留言板" class="headerlink" title="3. 在菜单栏添加留言板"></a>3. 在菜单栏添加留言板</h2><p>添加一个新的page</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo new page guestbook</span><br></pre></td></tr></table></figure>
+
+<p>进入 source/guestbook/index.md。加入你想显示的内容，如：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 留言板</span><br><span class="line"><span class="section">date: 2020-09-13 13:34:29</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section"># 欢迎来到我的博客！</span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 欢迎在这里留言！任何问题都可以在这里留言，我会及时回复的，添加email可以获得更快的回复速度，在nickname栏目输入QQ号可以直接获取你的QQ头像。</span></span><br></pre></td></tr></table></figure>
+
+<p>进入 _config.next.yml， 找到menu栏目，添加留言板功能：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">guestbook:</span> <span class="string">/guestbook/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-book</span></span><br></pre></td></tr></table></figure>
+
+<p>图标支持font awesome，可以按自己喜好修改。</p>
+<p>如果有多语言支持需求，可以更改 themes/next/languages 下对应语言的翻译。</p>
+<p>en.yml:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">guestbook:</span> <span class="string">guestbook</span></span><br></pre></td></tr></table></figure>
+
+<p>zh-CN.yml:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">guestbook:</span> <span class="string">留言板</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重新生成页面即可"><a href="#4-重新生成页面即可" class="headerlink" title="4. 重新生成页面即可"></a>4. 重新生成页面即可</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>valine比较简洁、配置简单且免费，非常推荐作为个人博客的评论系统来使用。网上有很多魔改版本的valine可以实现更多功能，有需要的同学可以自行查阅哦！如果有任何关于本篇文章的问题欢迎留言。</p>
+<h2 id="Upcoming-next"><a href="#Upcoming-next" class="headerlink" title="Upcoming next"></a>Upcoming next</h2><p>更改Valine评论表情</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://github.com/haomingvince/hexo-haomingvince/">我的页面设置</a></p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种排序算法总结</title>
+    <url>/2020/09/08/sorting_algorithms/</url>
+    <content><![CDATA[<h2 id="各种排序算法总结"><a href="#各种排序算法总结" class="headerlink" title="各种排序算法总结"></a>各种排序算法总结</h2><p>本文主要是为了总结各种算法的写法，复杂度，以及稳定性分析，主要是个人做个记录，如果有任何需要修改或优化的地方欢迎在评论区留言哦！</p>
+<h3 id="排序算法时间、空间、稳定性表"><a href="#排序算法时间、空间、稳定性表" class="headerlink" title="排序算法时间、空间、稳定性表"></a>排序算法时间、空间、稳定性表</h3><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>最好</th>
+<th>最坏</th>
+<th>平均</th>
+<th>空间</th>
+<th align="center">稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td>O(n)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(1)</td>
+<td align="center">稳定</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(1)</td>
+<td align="center">不稳定</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>O(n)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(1)</td>
+<td align="center">稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(nlog n)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(nlog n)</td>
+<td>O(log n)-O(n)</td>
+<td align="center">不稳定</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>O(nlog n)</td>
+<td>O(nlog n)</td>
+<td>O(nlog n)</td>
+<td>O(n)</td>
+<td align="center">稳定</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O(n^1.3)</td>
+<td>O(n<sup>2</sup>)</td>
+<td>O(nlog n)-O(n<sup>2</sup>)</td>
+<td>O(1)</td>
+<td align="center">不稳定</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td>O(n+k)</td>
+<td align="center">稳定</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>O(nk)</td>
+<td>O(nk)</td>
+<td>O(nk)</td>
+<td>O(n+k)</td>
+<td align="center">稳定</td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n+m)</td>
+<td align="center">稳定</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlog n)</td>
+<td>O(nlog n)</td>
+<td>O(nlog n)</td>
+<td>O(1)</td>
+<td align="center">不稳定</td>
+</tr>
+</tbody></table>
+<p>注：稳定性是指：假定在待排序的记录序列中，存在多个具有<strong>相同的关键字</strong>的记录，若经过排序，这些记录的<strong>相对次序</strong>保持不变，即在原序列中，ri=rj，且ri在rj之前，而在排序后的序列中，ri仍在rj之前，则称这种排序算法是稳定的；否则称为不稳定的。</p>
+<span id="more"></span>
+
+<h2 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序 Bubble Sort"></a>冒泡排序 Bubble Sort</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>作为本人踏入算法殿堂学习的第一个排序算法，冒泡排序可以算是经典算法之一了，它的基本思想是：*<u>两个数比较大小，较大的数下沉，较小的数冒起来</u>*。</p>
+</blockquote>
+<ol>
+<li><p>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+</li>
+<li><p>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</p>
+</li>
+<li><p>针对所有的元素重复以上的步骤，除了最后一个。</p>
+</li>
+<li><p>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+</li>
+</ol>
+<h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><p><img src="https://www.runoob.com/wp-content/uploads/2019/03/bubbleSort.gif" alt="冒泡排序"></p>
+<h3 id="Python-算法实现"><a href="#Python-算法实现" class="headerlink" title="Python 算法实现"></a>Python 算法实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble</span>(<span class="params">array</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array)-i-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> array[j] &gt; array[j+<span class="number">1</span>]:  <span class="comment">#判断大小，大的排在后面</span></span><br><span class="line">                array[j], array[j+<span class="number">1</span>] = array[j+<span class="number">1</span>], array[j]</span><br><span class="line">    <span class="keyword">return</span> array</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>平均时间复杂度 O(n<sup>2</sup>)</p>
+<h2 id="选择排序-Selection-Sort"><a href="#选择排序-Selection-Sort" class="headerlink" title="选择排序 Selection Sort"></a>选择排序 Selection Sort</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ol>
+<li><p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。</p>
+</li>
+<li><p>再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</p>
+</li>
+<li><p>重复第二步，直到所有元素均排序完毕。</p>
+</li>
+</ol>
+<h3 id="图示-1"><a href="#图示-1" class="headerlink" title="图示"></a>图示</h3><p><img src="https://www.runoob.com/wp-content/uploads/2019/03/selectionSort.gif" alt="选择排序"></p>
+<h3 id="Python-算法实现-1"><a href="#Python-算法实现-1" class="headerlink" title="Python 算法实现"></a>Python 算法实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection</span>(<span class="params">array</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(array)):</span><br><span class="line">        low = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(array)):</span><br><span class="line">            <span class="keyword">if</span> array[j] &lt; array[low]:</span><br><span class="line">                low = j</span><br><span class="line">        array[i], array[low] = array[low], array[i]</span><br><span class="line">    <span class="keyword">return</span> array</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><p>平均时间复杂度 O(n<sup>2</sup>)</p>
+<h2 id="插入排序-Insersion-Sort"><a href="#插入排序-Insersion-Sort" class="headerlink" title="插入排序 Insersion Sort"></a>插入排序 Insersion Sort</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
+</blockquote>
+<ol>
+<li><p>将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。</p>
+</li>
+<li><p>从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）</p>
+</li>
+</ol>
+<h3 id="图示-2"><a href="#图示-2" class="headerlink" title="图示"></a>图示</h3><p><img src="https://www.runoob.com/wp-content/uploads/2019/03/insertionSort.gif" alt="插入排序"></p>
+<h3 id="Python-算法实现-2"><a href="#Python-算法实现-2" class="headerlink" title="Python 算法实现"></a>Python 算法实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertion</span>(<span class="params">array</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(array)):</span><br><span class="line">        val = array[i]</span><br><span class="line">        j = i-<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> j &gt;= <span class="number">0</span> <span class="keyword">and</span> val &lt; array[j]:</span><br><span class="line">            array[j+<span class="number">1</span>] = array[j]</span><br><span class="line">            j-=<span class="number">1</span></span><br><span class="line">        array[j+<span class="number">1</span>] = val</span><br><span class="line">    <span class="keyword">return</span> array</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度-2"><a href="#复杂度-2" class="headerlink" title="复杂度"></a>复杂度</h3><p>平均时间复杂度 O(n<sup>2</sup>)</p>
+<h2 id="快速排序-Quick-Sort"><a href="#快速排序-Quick-Sort" class="headerlink" title="快速排序 Quick Sort"></a>快速排序 Quick Sort</h2><h3 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>快速排序的最坏运行情况是 O(n<sup>2</sup>)，比如说顺序数列的快排。但它的平摊期望时间是 O(nlogn)，且 O(nlogn) 记号中隐含的常数因子很小，比复杂度稳定等于 O(nlogn) 的归并排序要小很多。所以，对绝大多数顺序性较弱的随机数列而言，快速排序总是优于归并排序。</p>
+</blockquote>
+<ol>
+<li><p>从数列中挑出一个元素，称为 “基准”（pivot）;</p>
+</li>
+<li><p>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；</p>
+</li>
+<li><p>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；</p>
+</li>
+</ol>
+<h3 id="图示-3"><a href="#图示-3" class="headerlink" title="图示"></a>图示</h3><p><img src="https://www.runoob.com/wp-content/uploads/2019/03/quickSort.gif" alt="快速排序"></p>
+<h3 id="Python-算法实现-3"><a href="#Python-算法实现-3" class="headerlink" title="Python 算法实现"></a>Python 算法实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">arr, low, high</span>):</span></span><br><span class="line">    pivot = arr[high]</span><br><span class="line">    r = low - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(low, high):</span><br><span class="line">        <span class="keyword">if</span> arr[i] &lt; pivot:</span><br><span class="line">            r += <span class="number">1</span></span><br><span class="line">            arr[r], arr[i] = arr[i], arr[r]</span><br><span class="line">    arr[r+<span class="number">1</span>], arr[high] = arr[high], arr[r+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> r+<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span>(<span class="params">arr, left, right</span>):</span></span><br><span class="line">    <span class="keyword">if</span> left &gt;= right:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    pivot = partition(arr, left, right)</span><br><span class="line">    quicksort(arr, left, pivot - <span class="number">1</span>)</span><br><span class="line">    quicksort(arr, pivot + <span class="number">1</span>, right)</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度-3"><a href="#复杂度-3" class="headerlink" title="复杂度"></a>复杂度</h3><p>平均时间复杂度 O(nlog n)</p>
+<h2 id="归并排序-Merge-Sort"><a href="#归并排序-Merge-Sort" class="headerlink" title="归并排序 Merge Sort"></a>归并排序 Merge Sort</h2><h3 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>归并排序（Merge sort）是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。</p>
+</blockquote>
+<ol>
+<li><p>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；</p>
+</li>
+<li><p>设定两个指针，最初位置分别为两个已经排序序列的起始位置；</p>
+</li>
+<li><p>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；</p>
+</li>
+<li><p>重复步骤 3 直到某一指针达到序列尾；</p>
+</li>
+<li><p>将另一序列剩下的所有元素直接复制到合并序列尾。</p>
+</li>
+</ol>
+<h3 id="图示-4"><a href="#图示-4" class="headerlink" title="图示"></a>图示</h3><p><img src="https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif" alt="归并排序"></p>
+<h3 id="Python-算法实现-4"><a href="#Python-算法实现-4" class="headerlink" title="Python 算法实现"></a>Python 算法实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">array, l, r</span>):</span></span><br><span class="line">    i = j = k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(l) <span class="keyword">and</span> j &lt; <span class="built_in">len</span>(r):</span><br><span class="line">        <span class="keyword">if</span> l[i] &lt; r[j]:</span><br><span class="line">            array[k] = l[i]</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            array[k] = r[j]</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(l):</span><br><span class="line">        array[k] = l[i]</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> j &lt; <span class="built_in">len</span>(r): </span><br><span class="line">        array[k] = r[j]</span><br><span class="line">        j+= <span class="number">1</span></span><br><span class="line">        k+= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mergesort</span>(<span class="params">array</span>):</span></span><br><span class="line">    n = <span class="built_in">len</span>(array)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    left = mergesort(array[:n//<span class="number">2</span>])</span><br><span class="line">    right = mergesort(array[n//<span class="number">2</span>:])</span><br><span class="line">    <span class="keyword">return</span> merge(array, left, right)</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度-4"><a href="#复杂度-4" class="headerlink" title="复杂度"></a>复杂度</h3><p>平均时间复杂度 O(nlog n)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.runoob.com/w3cnote/sort-algorithm-summary.html">排序算法总结 | 菜鸟教程</a></p>
+<p><a href="https://www.runoob.com/w3cnote/ten-sorting-algorithm.html">1.0 十大经典排序算法 | 菜鸟教程</a></p>
+<p><a href="https://blog.csdn.net/u012501054/article/details/79342580">排序算法的稳定性及其意义_u012501054的博客-CSDN博客</a></p>
+<p>图片版权所有为菜鸟教程 runoob.com，如有侵权请联系删除。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎来到我的博客</title>
+    <url>/2020/09/06/welcome/</url>
+    <content><![CDATA[<h2 id="Vince的博客终于开通了！"><a href="#Vince的博客终于开通了！" class="headerlink" title="Vince的博客终于开通了！"></a>Vince的博客终于开通了！</h2><p>经过了一天的摸索和实践，加上踩了无数的坑，终于通过 Hexo 加 Github成功实现了自己的博客！这个域名很早就买了，当时想的是用自己搬瓦工的服务器自己搭建，但是一直没时间去学习，加上本人对前端知识可谓是一窍不通就一直搁置了。前几天在网上看到有大佬分享自己搭博客的经验，自己瞬间来了兴趣故搭建了本站。</p>
+<span id="more"></span>
+
+<h2 id="本站用途"><a href="#本站用途" class="headerlink" title="本站用途"></a>本站用途</h2><p>本站主要用来记录本人学习过程中的各种点滴以及网络上自己觉得有用的文章，希望大家可以一起学习，相互勉励！</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程 - 知乎</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/35668237">超详细Hexo+Github博客搭建小白教程 - 知乎</a></p>
+<p><a href="https://juejin.im/post/6844903679858851853">hexo搭建个人网站博客完全教程 - 掘金</a></p>
+<p><a href="https://valine.js.org/">介绍 | Valine 一款快速、简洁且高效的无后端评论系统</a></p>
+<p><a href="https://www.leancloud.cn/">LeanCloud</a></p>
+<p>-Vince 于 2020/09/06 at San Diego, CA</p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+</search>

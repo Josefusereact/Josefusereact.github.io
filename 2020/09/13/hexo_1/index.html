@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script>
+<meta name="description" content="前言经过了快一星期的折腾，我的博客的各项功能也在陆续开通中，本文就来记录一下hexo + github pages心路历程及配置方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo基本安装及配置">
+<meta property="og:url" content="http://example.com/2020/09/13/hexo_1/index.html">
+<meta property="og:site_name" content="旅行者的背囊">
+<meta property="og:description" content="前言经过了快一星期的折腾，我的博客的各项功能也在陆续开通中，本文就来记录一下hexo + github pages心路历程及配置方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/9.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/10.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/11.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/12.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/13.png">
+<meta property="article:published_time" content="2020-09-13T03:32:25.000Z">
+<meta property="article:modified_time" content="2020-09-23T22:06:49.000Z">
+<meta property="article:author" content="Keanubionic">
+<meta property="article:tag" content="杂谈">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/1.png">
+
+
+<link rel="canonical" href="http://example.com/2020/09/13/hexo_1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;09&#x2F;13&#x2F;hexo_1&#x2F;&quot;,&quot;path&quot;:&quot;2020&#x2F;09&#x2F;13&#x2F;hexo_1&#x2F;&quot;,&quot;title&quot;:&quot;hexo基本安装及配置&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>hexo基本安装及配置 | 旅行者的背囊</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">旅行者的背囊</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>guestbook</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">2.</span> <span class="nav-text">安装hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%87%86%E5%A4%87%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="nav-number">2.1.</span> <span class="nav-text">需要准备的东西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">安装流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7github%E8%B4%A6%E5%8F%B7"><span class="nav-number">2.2.1.</span> <span class="nav-text">申请github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">2.2.2.</span> <span class="nav-text">创建一个新的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E8%84%91%E4%B8%8A%E5%AE%89%E8%A3%85-git"><span class="nav-number">2.2.3.</span> <span class="nav-text">电脑上安装 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E8%84%91%E4%B8%8A%E5%AE%89%E8%A3%85-node-js"><span class="nav-number">2.2.4.</span> <span class="nav-text">电脑上安装 node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">2.2.5.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%88%B0github-pages"><span class="nav-number">2.2.6.</span> <span class="nav-text">配置到github pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%BD%91%E9%A1%B5"><span class="nav-number">2.2.7.</span> <span class="nav-text">访问网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.2.8.</span> <span class="nav-text">绑定你自己的域名（可选）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Upcoming-Next"><span class="nav-number">3.1.</span> <span class="nav-text">Upcoming Next</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Keanubionic"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Keanubionic</p>
+  <div class="site-description" itemprop="description">万物归于尘土 万事皆有悔恨</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Kazutokyo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Kazutokyo" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Keanubionic@gmail.com" title="E-Mail → mailto:Keanubionic@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://user.qzone.qq.com/987064101/infocenter" title="Tencent → https:&#x2F;&#x2F;user.qzone.qq.com&#x2F;987064101&#x2F;infocenter" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>Tencent</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.frontendx.cn/" title="https:&#x2F;&#x2F;blog.frontendx.cn&#x2F;" rel="noopener" target="_blank">前端工程师</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/13/hexo_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Keanubionic">
+      <meta itemprop="description" content="万物归于尘土 万事皆有悔恨">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="旅行者的背囊">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hexo基本安装及配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-13 11:32:25" itemprop="dateCreated datePublished" datetime="2020-09-13T11:32:25+08:00">2020-09-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-24 06:06:49" itemprop="dateModified" datetime="2020-09-24T06:06:49+08:00">2020-09-24</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经过了快一星期的折腾，我的博客的各项功能也在陆续开通中，本文就来记录一下hexo + github pages心路历程及配置方法。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>可以通过右边的文章目录快速跳转哦！</p>
+</blockquote>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><h2 id="需要准备的东西"><a href="#需要准备的东西" class="headerlink" title="需要准备的东西"></a>需要准备的东西</h2><ol>
+<li>github账号</li>
+<li>git(本地)</li>
+<li>node.js</li>
+<li>npm</li>
+<li>个人域名(可选)</li>
+</ol>
+<h2 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h2><h3 id="申请github账号"><a href="#申请github账号" class="headerlink" title="申请github账号"></a>申请<a target="_blank" rel="noopener" href="https://github.com/">github</a>账号</h3><p>这里xxx填写你的github账户名称。如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/1.png"><br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/2.png"></p>
+<h3 id="创建一个新的仓库"><a href="#创建一个新的仓库" class="headerlink" title="创建一个新的仓库"></a>创建一个新的仓库</h3><p>命名为 xxx.github.io<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/3.png"><br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/4.png"></p>
+<h3 id="电脑上安装-git"><a href="#电脑上安装-git" class="headerlink" title="电脑上安装 git"></a>电脑上安装 <a target="_blank" rel="noopener" href="https://git-scm.com/">git</a></h3><p>记得添加右键选单和加入PATH。具体git配置教程可以参考<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/dietime1943/article/details/71751007">[Git &amp; GitHub] Windows安装git和环境变量配置_Bluetata’s Tech.Blog-CSDN博客</a></p>
+<h3 id="电脑上安装-node-js"><a href="#电脑上安装-node-js" class="headerlink" title="电脑上安装 node.js"></a>电脑上安装 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">node.js</a></h3><p>记得加入PATH。此版本node.js集成了npm，可以再命令行中输入node -v 以及 npm -v 检查是否安装成功。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/5.png"></p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用命令行工具(cd xxxx) 进入你的博客文件夹，依次输入以下指令：<br>安装hexo和hexo服务器模块</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+
+<p>初始化博客</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>测试hexo是否安装成功：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="built_in">test</span></span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>其中hexo new test表示新建一篇名为test的博文，hexo g表示生成，是hexo generate的简写，hexo s在本地运行hexo服务器，是hexo server的简写。</p>
+<p>成功后会有如下提示，进入 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到刚刚生成的网页。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/6.png"></p>
+<p>以下为配置完成后的样子，可能和你生成的页面不同，如果想配置和我一样的hexo可以继续阅读我的其他post。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/7.png"></p>
+<h3 id="配置到github-pages"><a href="#配置到github-pages" class="headerlink" title="配置到github pages"></a>配置到github pages</h3><p>之前的操作只是在本地实现了我们的博客，如何推送到github pages呢？</p>
+<p>首先，打开博客目录下的 _config.yml 文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/8.png"></p>
+<p>使用 ctrl+f 搜索deploy，并添加以下代码。注意！把xxx改为之前在github配置的名字即可。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/xxx/xxx.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来，安装hexo-deployer-git</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>接下来就可以推送我们的网页到github啦！</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>其中hexo d表示deploy，是hexo deploy的简写，它会去config里面找到deploy栏目，然后根据你配置的deployer进行配置，十分方便！</p>
+<h3 id="访问网页"><a href="#访问网页" class="headerlink" title="访问网页"></a>访问网页</h3><p>如果之前的步骤都是正确的话，那么恭喜你！你已经可以访问你的网页了！</p>
+<p>比如我的网页： <a target="_blank" rel="noopener" href="https://haomingvince.github.io/">https://haomingvince.github.io</a></p>
+<p>把haomingvince改成你的github用户名即可</p>
+<h3 id="绑定你自己的域名（可选）"><a href="#绑定你自己的域名（可选）" class="headerlink" title="绑定你自己的域名（可选）"></a>绑定你自己的域名（可选）</h3><p>如果你已经拥有你自己的域名的话那是最好，如果你想购买一个域名，可以去<a target="_blank" rel="noopener" href="https://dnspod.cloud.tencent.com/">腾讯云</a>，<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/">阿里云</a>，或者<a target="_blank" rel="noopener" href="https://go.skimresources.com/?id=157360X1623833&xs=1&xcreo=500002&url=https://www.godaddy.com">godaddy</a>购买。</p>
+<p>由于我的域名是在godaddy购买的，接下来我会演示如何绑定你的github pages到godaddy，其他域名商操作应该也是雷同的。</p>
+<p>登录你的godaddy后台，点击manage DNS<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/9.png"></p>
+<p>添加两条记录，一条CNAME，一条A记录，如图：<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/10.png"><br>其中CNAME的value就填写你的github page的值，A的value可以通过ping xxx.github.io得到。</p>
+<p>接下来，去到你的github page的settings界面，在Options-&gt;Github pages-&gt;custom domain添加你的域名：<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/11.png"></p>
+<p>最后一步，在你本地 /source 文件夹下添加一个名为CNAME的文件（注意，此文件没有后缀），里面添加你的域名即可。<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/12.png"></p>
+<p>再次执行deploy</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>稍等几分钟，你就可以用自己的域名访问你的网站啦！<br><img src="https://cdn.jsdelivr.net/gh/haomingvince/ghcdn@master/hexo_pic/13.png"></p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本文介绍了基本的hexo + github page的部署及实现，如果有任何问题，欢迎留言！</p>
+<h2 id="Upcoming-Next"><a href="#Upcoming-Next" class="headerlink" title="Upcoming Next"></a>Upcoming Next</h2><p>Next 8.0 主题配置 （<a target="_blank" rel="noopener" href="https://haomingzhang.com/hexo_2/">已更新</a>）</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://haomingzhang.com/">Vince’s Blog</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程 - 知乎</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9D%82%E8%B0%88/" rel="tag"># 杂谈</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/08/sorting_algorithms/" rel="prev" title="各种排序算法总结">
+                  <i class="fa fa-chevron-left"></i> 各种排序算法总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/13/hexo_2/" rel="next" title="hexo主题安装以及next8.0主题美化">
+                  hexo主题安装以及next8.0主题美化 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Keanubionic</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+
+  <script src="[object Object]"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/%5Bobject%20Object%5D"></script>
+
+
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+</script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
